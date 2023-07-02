@@ -24,7 +24,7 @@ pipeline{
                 }
             }
         }
-        stage('Deploy to Host Server'){
+        stage('Deploy to Host Servers'){
             steps{
                 sshagent(credentials : ['ssh-key']){
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@10.0.12.217 docker run -itd -p 8080:8081 355064287350.dkr.ecr.us-east-1.amazonaws.com/project-application:v1'                
